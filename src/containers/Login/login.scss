@@ -1,0 +1,36 @@
+.cfb-login {
+  background-image: url(../../assets/Backgrounds/3.jpg);
+  background-size: cover;
+  height: 100vh;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__box {
+    height: 50rem;
+    width: 50rem;
+    background-color: rgba($black, 0.8);
+    padding: 2rem 8rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    // justify-content: center;
+  }
+
+  &__heading {
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size: 2.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+
+    margin-bottom: 4rem;
+  }
+
+  &__email {
+    padding: 0.4rem 2rem;
+  }
+}

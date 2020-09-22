@@ -1,0 +1,26 @@
+.cfb-buttonWithIcon {
+  background-color: $white;
+  align-self: center;
+
+  margin-top: 2rem;
+
+  padding: 0.5rem 1.5rem;
+  transition: all 0.5s;
+  border: 1px solid $black;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+
+    border: 1px solid $white;
+    //   font-weight: 500;
+  }
+
+  &__icon {
+    margin-left: 1rem;
+  }
+
+  &__text {
+  }
+}
