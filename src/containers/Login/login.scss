@@ -1,11 +1,16 @@
 .cfb-login {
-  background-image: url(../../assets/Backgrounds/3.jpg);
+  background-image: url(../../assets/Backgrounds/3-min.jpg);
   background-size: cover;
   height: 100vh;
   color: $white;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 2rem;
+
+  @media only screen and (max-width: $bp-minimal) {
+    padding: 0 1rem;
+  }
 
   &__box {
     height: 50rem;
@@ -17,6 +22,15 @@
     flex-direction: column;
     align-items: stretch;
     // justify-content: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+      width: 100%;
+      padding: 2rem 4rem;
+    }
+
+    @media only screen and (max-width: $bp-minimal) {
+      padding: 2rem 1rem;
+    }
   }
 
   &__heading {
@@ -28,6 +42,11 @@
     font-weight: 600;
 
     margin-bottom: 4rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-bottom: 2rem;
+      //   font-size: 2.5rem;
+    }
   }
 
   &__email {

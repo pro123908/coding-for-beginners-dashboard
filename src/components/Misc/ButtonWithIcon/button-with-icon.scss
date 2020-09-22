@@ -9,6 +9,14 @@
   border: 1px solid $black;
   border-radius: 3px;
 
+  @media only screen and (max-width: $bp-smallest) {
+    margin-top: 1rem;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    width: 80%;
+  }
+
   &:hover {
     background-color: $black;
     color: $white;
