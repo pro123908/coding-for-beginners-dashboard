@@ -8,24 +8,24 @@
   align-items: center;
   padding: 0 2rem;
 
-  @media only screen and (max-width: $bp-minimal) {
-    padding: 0 1rem;
+  @media only screen and (max-width: $bp-smallest) {
+    padding: 0;
   }
 
   &__box {
-    height: 50rem;
     width: 50rem;
     background-color: rgba($black, 0.8);
-    padding: 2rem 8rem;
+    padding: 4rem 8rem;
 
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    // justify-content: center;
+    justify-content: center;
 
     @media only screen and (max-width: $bp-smallest) {
       width: 100%;
       padding: 2rem 4rem;
+      height: 100%;
     }
 
     @media only screen and (max-width: $bp-minimal) {
