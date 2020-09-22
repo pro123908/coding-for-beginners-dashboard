@@ -11,6 +11,7 @@ const Login = () => {
   return (
     <div className="cfb-login">
       <div className="cfb-login__box">
+        <div className="cfb__main-heading">Coding for beginners</div>
         <div className="cfb-login__heading">Login to continue</div>
         <InputWithIcon
           placeholder="Email Address"
