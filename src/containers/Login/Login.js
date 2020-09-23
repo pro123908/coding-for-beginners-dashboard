@@ -4,9 +4,10 @@ import GoogleButton from "../../components/Misc/GoogleButton/GoogleButton";
 import InputWithIcon from "../../components/Misc/InputWithIcon/InputWithIcon";
 import OrLine from "../../components/Misc/OrLine/OrLine";
 
-const Login = () => {
+const Login = ({ firebase }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // console.log("login props => ", props);
 
   return (
     <div className="cfb-login">
@@ -25,11 +26,20 @@ const Login = () => {
           onInputChange={setPassword}
           inputType="password"
         />
-        <ButtonWithIcon buttonText="Continue" iconClass="fas fa-arrow-right" />
+        <ButtonWithIcon
+          buttonText="Continue"
+          iconClass="fas fa-arrow-right"
+          onClick={() =>
+            firebase.createUserWithEmailAndPassword(email, password)
+          }
+        />
 
         <OrLine />
 
-        <GoogleButton text="Sign in with Google" />
+        <GoogleButton
+          text="Sign in with Google"
+          callback={firebase.signUserWithGoogle}
+        />
       </div>
     </div>
   );
