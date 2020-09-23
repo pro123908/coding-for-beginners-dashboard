@@ -11,14 +11,8 @@ const App = () => {
     <Router>
       <Switch>
         <Route path="/home" component={Home} />
-        <Route
-          path="/login"
-          component={() => (
-            <FirebaseContext.Consumer>
-              {(firebase) => <Login firebase={firebase} />}
-            </FirebaseContext.Consumer>
-          )}
-        />
+
+        <Route path="/login" component={Login} />
       </Switch>
     </Router>
   );
