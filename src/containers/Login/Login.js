@@ -3,17 +3,19 @@ import ButtonWithIcon from "../../components/Misc/ButtonWithIcon/ButtonWithIcon"
 import GoogleButton from "../../components/Misc/GoogleButton/GoogleButton";
 import InputWithIcon from "../../components/Misc/InputWithIcon/InputWithIcon";
 import OrLine from "../../components/Misc/OrLine/OrLine";
-import { FirebaseContext } from "../../Firebase";
-import withFirebase from "../../HOC/withFirebase";
+
 import BackgroundImageOnLoad from "background-image-on-load";
 
 import bgImage from "../../assets/Backgrounds/3-min.jpg";
+import { connect } from "react-redux";
 
-const Login = ({ firebase }) => {
+import { getGoogleUser } from "../../actions/actions";
+
+const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [bgIsLoaded, setBgIsLoaded] = useState(true);
-  // console.log("login props => ", props);
+  console.log("login props => ", props);
 
   return (
     <div
@@ -48,7 +50,7 @@ const Login = ({ firebase }) => {
           buttonText="Continue"
           iconClass="fas fa-arrow-right"
           onClick={() =>
-            firebase.createUserWithEmailAndPassword(email, password)
+            props.firebase.createUserWithEmailAndPassword(email, password)
           }
         />
 
@@ -56,11 +58,22 @@ const Login = ({ firebase }) => {
 
         <GoogleButton
           text="Sign in with Google"
-          callback={firebase.signUserWithGoogle}
+          callback={() => props.getGoogleUser(props.history)}
         />
       </div>
     </div>
   );
 };
 
-export default withFirebase(Login);
+const mapStateToProps = (state) => ({
+  Auth: state.Auth,
+});
+
+const mapDispatchToProps = { getGoogleUser };
+
+// export default compose(
+//   withFirebase,
+//   connect(mapStateToProps, mapDispatchToProps)
+// )(Login);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -1,11 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Firebase, { FirebaseContext } from "./Firebase/index";
+import Firebase from "./Firebase";
 
-ReactDOM.render(
-  <FirebaseContext.Provider value={new Firebase()}>
-    <App />
-  </FirebaseContext.Provider>,
-  document.querySelector("#root")
-);
+ReactDOM.render(<App />, document.querySelector("#root"));

@@ -1,36 +1,24 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getRecipe, getRecipes } from "../../actions/actions";
 
-const Home = (props) => {
-  useEffect(() => {
-    // props.getRecipes("Sausage");
-  }, []);
-
-  useEffect(() => {
-    console.log("Recipes => ", props.recipes);
-  }, [props.recipes]);
-
+const Home = ({ Auth: { googleUser } }) => {
   return (
     <div>
-      {props.recipes.map((recipe) => (
-        <div>{recipe.title}</div>
-      ))}
+      <div>
+        <img style={{ width: "500px" }} src={googleUser.photoURL} />
+      </div>
+      <div>Name : {googleUser.displayName}</div>
+      <div>Email : {googleUser.email}</div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log("state red => ", state);
   return {
-    recipe: state.Recipe.recipe,
-    recipes: state.Recipe.recipes,
+    Auth: state.Auth,
   };
 };
 
-const mapDispatchToProps = {
-  getRecipe,
-  getRecipes,
-};
+const mapDispatchToProps = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

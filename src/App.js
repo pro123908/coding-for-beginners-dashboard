@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducer";
+import { handleGoogleUserInLocalStorage } from "./api/LocalStorage";
 
 function reducer(state, action) {
   console.log(action);
@@ -22,6 +23,11 @@ function reducer(state, action) {
 }
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
+
+let googleUser = handleGoogleUserInLocalStorage();
+if (googleUser) {
+  store.dispatch({ type: "GET_GOOGLE_USER", payload: googleUser });
+}
 
 const App = () => {
   return (

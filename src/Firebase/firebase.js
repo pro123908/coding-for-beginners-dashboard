@@ -32,7 +32,7 @@ class firebase {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
+        var { displayName, email, photoURL, refreshToken, uid } = result.user;
 
         // return googleResponseCallback({ token, user });
         // ...
@@ -50,4 +50,4 @@ class firebase {
   };
 }
 
-export default firebase;
+export default new firebase();
