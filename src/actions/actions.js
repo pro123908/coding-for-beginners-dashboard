@@ -5,7 +5,7 @@ import { RecipesApiKey } from "../config";
 import { GET_GOOGLE_USER, GET_RECIPES } from "./actionType";
 
 import firebase from "firebase";
-import { handleGoogleUserInLocalStorage } from "../api/LocalStorage";
+import { handleGoogleUserInLocalStorage } from "../utils/LocalStorage";
 
 export const getRecipes = (query) => {
   console.log("Query => ", query);

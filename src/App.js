@@ -12,17 +12,11 @@ import Home from "./containers/Home/Home";
 import Login from "./containers/Login/Login";
 
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./reducer";
-import { handleGoogleUserInLocalStorage } from "./api/LocalStorage";
 
-function reducer(state, action) {
-  console.log(action);
-  return state;
-}
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
+import { handleGoogleUserInLocalStorage } from "./utils/LocalStorage";
+import store from "./store";
+import PrivateRoute from "./utils/PrivateRoute";
+import PublicRoute from "./utils/PublicRoute";
 
 let googleUser = handleGoogleUserInLocalStorage();
 if (googleUser) {
@@ -34,12 +28,8 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Switch>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/">
-            {true ? <Redirect to="/login" /> : <Home />}
-          </Route>
-
-          <Route path="/login" component={Login} />
+          <PrivateRoute component={Home} path="/home" />
+          <PublicRoute component={Login} path="/login" restricted={true} />
         </Switch>
       </Router>
     </Provider>
