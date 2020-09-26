@@ -18,6 +18,7 @@ import store from "./store";
 import PrivateRoute from "./utils/PrivateRoute";
 import PublicRoute from "./utils/PublicRoute";
 
+// Getting user from the localStorage
 let googleUser = handleGoogleUserInLocalStorage();
 if (googleUser) {
   store.dispatch({ type: "GET_GOOGLE_USER", payload: googleUser });
