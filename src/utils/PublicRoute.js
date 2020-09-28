@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import store from "../store";
 
+// to allow access to the public routes
 const PublicRoute = ({ component: OriginalComponent, restricted, ...rest }) => {
   return (
     <Route
